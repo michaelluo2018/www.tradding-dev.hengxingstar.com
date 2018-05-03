@@ -196,7 +196,7 @@ $("body").on("click", ".page-link,#search", function() {
 
 
 //获取所有品种的行情基础信息 code
-function get_code(){
+/*function get_code(){
 	//alert("123");
 	$.ajax({
 		type: "POST",
@@ -225,4 +225,4 @@ function get_code(){
 	});
 }
 
-get_code();
+get_code();*/

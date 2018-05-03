@@ -149,7 +149,21 @@
                         <!--li> <a class="has-arrow waves-effect waves-dark" href="index.html"><i class="mdi mdi-gauge"></i><span class="hide-menu">工作台 </span></a></li-->
                         <li> <a class="has-arrow waves-effect waves-dark" href="gdsz.html" ><i class="mdi mdi-file"></i><span class="hide-menu">挂单设置</span></a></li>
 						<li> <a class="has-arrow waves-effect waves-dark" href="cjjl.html"><i class="mdi mdi-table"></i><span class="hide-menu">成交记录</span></a></li>
+						<li> <a class="has-arrow waves-effect waves-dark" href="sjqs.html"><i class="mdi mdi-file-chart"></i><span class="hide-menu">数据趋势</span></a></li>
+						<li> <a class="has-arrow waves-effect waves-dark" href="ddyj.html"><i class="mdi mdi-bullseye"></i><span class="hide-menu">大单预警</span></a></li>						
                     </ul>
+                    <hr>
+					<table class="table">
+						<thead>
+                            <tr>
+                                <th>交易对</th>
+                                <th>价格</th>
+                                <th>24H涨跌</th>
+                            </tr>
+                        </thead>
+                        <tbody class="market_list">                                             
+                        </tbody>
+                  </table>                    
 				</nav>
 				
                 <!-- End Sidebar navigation -->
@@ -283,19 +297,19 @@
                                                     
                                                     <div class="form-check">
                                                         <label class="custom-control custom-radio">
-                                                            <input name="phone_num" type="radio" checked class="custom-control-input phone_num" value="50">
+                                                            <input name="phone_num" type="radio" checked class="custom-control-input phone_num" value="10">
                                                             <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description">显示50</span>
+                                                            <span class="custom-control-description">显示10</span>
                                                         </label>
                                                         <label class="custom-control custom-radio">
-                                                            <input name="phone_num" type="radio" class="custom-control-input phone_num" value="100">
+                                                            <input name="phone_num" type="radio" class="custom-control-input phone_num" value="20">
                                                             <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description">显示100</span>
+                                                            <span class="custom-control-description">显示20</span>
                                                         </label>
 														<label class="custom-control custom-radio">
-                                                            <input name="phone_num" type="radio" class="custom-control-input phone_num" value="200">
+                                                            <input name="phone_num" type="radio" class="custom-control-input phone_num" value="50">
                                                             <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-description">显示200</span>
+                                                            <span class="custom-control-description">显示50</span>
                                                         </label>
                                                     </div>
                                                 </div>
@@ -312,7 +326,9 @@
 														<span class="custom-control-indicator"></span>
 														<span class="custom-control-description">全不选</span>
 													</label>
+                                                    <a class="btn btn-blue change_batch" data-batch="0">换一批</a>
 												 </div>	
+                                                 
 										   </div>
 										</div>
 										<div class="row">

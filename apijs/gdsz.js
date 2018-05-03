@@ -1,17 +1,36 @@
 // JavaScript Document
 //设置操盘策略 
 $(document).ready(function(){
-	 get_phone(50);
+	 get_phone(10,0);
 });
-get_code();
+//get_code();
 
-function get_phone(num){	
+//换一批
+$(".change_batch").click(function(){
+	var num = 10;
+	var batch_num = $(this).attr("data-batch");
+	$.each($('input[name=phone_num]:checked'),function(){
+		num = $(this).val();
+	});
+	var total = (parseInt(batch_num)+1)*num;
+	if(total>200){
+		batch_num = 0;	
+	}else{
+		batch_num++;
+	}	
+	$(this).attr("data-batch",batch_num);
+	get_phone(num,batch_num);
+})
+
+function get_phone(num,batch_num){
+	
 	$.ajax({
 		type: "POST",
 		url: api_url+"api/user/get_majia",
 		data: {
 			"token": token,
 			"size":num,
+			"batch_num":batch_num,
 		},
 		async: false,
 		dataType: "json",
@@ -44,7 +63,7 @@ function get_phone(num){
 }
 
 //获取所有品种的行情基础信息 code
-function get_code(){
+/*function get_code(){
 	//alert("123");
 	$.ajax({
 		type: "POST",
@@ -54,7 +73,7 @@ function get_code(){
 		async: false,
 		dataType: "json",
 		success: function(res) {	
-			console.log(res);
+			//console.log(res);
 			var option = '';
 			$('select[name="code"]').html();
 			$.each(res.data,function(index, value){
@@ -66,12 +85,12 @@ function get_code(){
 			$('select[name="code"]').html(option);
 		}
 	});
-}
+}*/
 
 //显示手机号数量
 $(".phone_num").click(function(){
 	var num = $(this).val();
-	get_phone(num);
+	get_phone(num,0);
 });
 	
 	

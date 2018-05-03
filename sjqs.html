@@ -10,12 +10,9 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
-    <title>成交记录 - 交易所-操盘管理系统</title>
+    <title>数据趋势-交易所-操盘管理系统</title>
     <!-- Bootstrap Core CSS -->
-	 <!-- Footable CSS -->
-    <link href="assets/plugins/footable/css/footable.core.css" rel="stylesheet">
     <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
     
     <!-- chartist CSS -->
     <link href="assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
@@ -27,6 +24,7 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+	<link href="css/jquery-confirm.min.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -167,6 +165,7 @@
                         </tbody>
                    </table>
 				</nav>
+				
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -197,10 +196,10 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">成交记录</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">数据趋势</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">工作台</a></li>
-                            <li class="breadcrumb-item active">成交记录</li>
+                            <li class="breadcrumb-item active">数据趋势</li>
                         </ol>
                     </div>
                 </div>
@@ -210,69 +209,83 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row">
+                <!-- Row -->
+                    <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-body">								
-								<h4 class="card-title">成交记录</h4>
+                            <div class="card-body">									
+								<div class="d-flex">
+                                            <div class="mr-auto col-3">
+                                                <h4 class="card-title">数据趋势</h4>
+                                            </div>
+                                            <div class="ml-auto col-9">
+                                                <div class="form-group">
+	                                                <div class="row">
+			                                            <div class="col-md-6">
+			                                                <div class="form-group row">
+			                                                    <label class="control-label text-right col-md-4">选择类别</label>
+			                                                    <div class="col-md-8">
+			                                                        <select class="form-control custom-select"  name="asset_type">
+			                                                        	<option value="SAC">SAC</option>
+			                                                        	<option value="BTC">BTC</option>
+			                                                        	<option value="ETH">ETH</option>
+			                                                        </select>
+			                                                        </div>
+			                                                </div>
+			                                            </div>
+			                                            <!--/span-->
+			                                            <div class="col-md-6">
+			                                                <div class="form-group row">
+			                                                    <label class="control-label text-right col-md-4">开始时间</label>
+			                                                    <div class="col-md-8">
+			                                                        <input type="date" class="form-control" placeholder="dd/mm/yyyy" name="start_time">
+			                                                    </div>
+			                                                </div>
+			                                            </div>
+			                                            <!--/span-->
+			                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+								
 								<div class="col-md-2">
-									<select id="sortingField" class="custom-select form-control input-sm m-b-10 row"  name="code">
-									</select>
+									
 								</div>
                                 <div class="table-responsive">
-                                    <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
-                                        <thead>
-                                            <tr>
-                                                <!--<th data-hide="phone">序号</th>-->
-                                                <th >用户名</th>
-                                                <th data-hide="phone">交易品种</th>
-                                                <th data-hide="phone">交易类型</th>
-                                                <!--<th data-hide="phone">委托类型</th>
-                                                <th data-hide="phone">委托量</th>-->
-                                                <th data-hide="phone">日期/时间</th>
-                                                <th data-hide="phone">成交价格</th>
-												<th data-hide="phone">成交量</th>
-												<th data-hide="phone">手续费</th>
-                                                <th>成交总额</th>
-												<!--<th>委托状态</th>-->
-                                            </tr>
-                                        </thead>
-                                        <tbody class="list">
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <a href="gdsz.html" class="btn btn-info">挂单设置</a>
-                                                </td>
-                                                <td colspan="9">
-                                                    <div class="text-right">
-                                                        <ul class="pagination"> </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+                                    <div id="main" style="width: 100%;height:500px;"></div>
                                 </div>
                             </div>
                         </div>
                       </div>
                 </div>
                 
-            </div>
-           
-            <footer class="footer"> © 2018 交易所 </footer>
-            
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer">
+                © 2018 交易所
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
         </div>
-      
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
     </div>
-   
-   
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
     <script src="assets/plugins/jquery/jquery.min.js"></script>
-	
-	<script src="apijs/config.js"></script>
-	<script src="apijs/cjjl.js"></script>
-	
-	
+	<script src="js/jquery-confirm.min.js"></script>
+	<script src="js/echarts.min.js"></script>
+    <script src="apijs/config.js"></script>
+	<script src="apijs/sjqs.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -287,14 +300,11 @@
     <script src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
-    <!-- Footable -->
-    <script src="assets/plugins/footable/js/footable.all.min.js"></script>
-    <script src="assets/plugins/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-    <!--FooTable init-->
-    <script src="js/footable-init.js"></script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 	
+</body>
+
 </html>
