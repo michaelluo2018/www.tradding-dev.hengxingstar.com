@@ -34,7 +34,7 @@ function get_market(){
 			$(".market_list").html('');
 			
 			for(var i = 0; i < list_len; i++) {				
-				var percentage = list[i].increased/100;
+				var percentage = Math.floor(list[i].increased * 100) / 100 ;//24H涨跌
 				var danger = 'text-danger';
 				var down = 'fa-level-down';
 				if(percentage > 0){
